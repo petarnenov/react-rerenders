@@ -2,7 +2,8 @@ import React from 'react'
 import { useAppContext } from '../hooks/useAppContext';
 
 const ColorPicker = () => {
-	const { store: { color }, setStore } = useAppContext();
+	const store  = useAppContext()
+	const color = store.useStore(state => state.color) || '#fff'
 
 	return (
 		<div>
@@ -10,10 +11,10 @@ const ColorPicker = () => {
 			<input
 				type="color"
 				id="color-picker"
-				onChange={e => setStore({ color: e.target.value })}
+				onChange={e => store.setState({ color: e.target.value })}
 				value={color}
 			/>
-			<p>{color}</p>
+			<p>color {color}</p>
 		</div>
 	)
 }
