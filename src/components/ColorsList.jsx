@@ -22,7 +22,7 @@ const ColorsList = () => {
 
 	return (
 		<div>
-			<h3>Colors List</h3>
+			<h3>Colors List({colors.length})</h3>
 			<ul>
 				{colors.map((color, index) => {
 					const c = `#${color}${color}${color}`;
