@@ -1,17 +1,17 @@
 import React from 'react'
-import { useAppContext } from '../hooks/useAppContext'
+import {useAppContext} from '../hooks/useAppContext'
 
-const CustomInput = ({ label, type = "text" }) => {
-	const store = useAppContext()
-	const { value = '' } = store.useStore(state => state[label.toLowerCase()]) || {};
-	const handleChange = e => store.setState({ [label.toLowerCase()]: { value: e.target.value, isValid: true } })
+const CustomInput = ({label, type = "text"}) => {
+	const {useStore, setState, getState} = useAppContext()
+	const {value = ''} = useStore(state => state[label.toLowerCase()]) || {};
+	const handleChange = e => setState({[label.toLowerCase()]: {value: e.target.value, isValid: true}})
 
-	console.log("store: ", store.getState())
+	console.log("store: ", getState())
 
 	return (
 		<label>
 			{label}:
-			<input type={type} name="name" value={value} onChange={handleChange} />
+			<input type={type} name={label.toLowerCase()} value={value} onChange={handleChange} />
 		</label>
 	)
 }

@@ -1,4 +1,4 @@
-import { useSyncExternalStore } from "react";
+import {useSyncExternalStore} from "react";
 
 function createStore(initialState) {
 	let currentState = initialState || {};
@@ -13,12 +13,11 @@ function createStore(initialState) {
 			};
 			listeners.forEach(listener => listener(currentState));
 		},
-		subscribe: (listener) => {
-			listeners.add(listener);
-			return () => listeners.delete(listener);
-		},
 		useStore: selector => useSyncExternalStore(
-			store.subscribe,
+			(listener) => {
+				listeners.add(listener);
+				return () => listeners.delete(listener);
+			},
 			() => selector(currentState),
 			null
 		)
