@@ -1,7 +1,4 @@
-//https://www.youtube.com/watch?v=4MmmlWwlST4&ab_channel=JackHerrington
-//https://www.youtube.com/watch?v=INLq9RPAYUw&t=554s&ab_channel=Theo-t3%E2%80%A4gg
-//https://react-scan.com/
-import React from 'react'
+import React, {Suspense} from 'react'
 import Counter from './components/Counter'
 import ColorPicker from './components/ColorPicker'
 import ColorsList from './components/ColorsList'
@@ -19,19 +16,21 @@ function App() {
       <h1>React Rerenders</h1>
       <ul>
         <li>
-          <a href="https://www.youtube.com/watch?v=4MmmlWwlST4&ab_channel=JackHerrington">Video 1</a>
+          <a href="https://www.youtube.com/watch?v=4MmmlWwlST4&ab_channel=JackHerrington" target='blank'>Video "Check out React 18's useExternalStore hook with TypeScript and generics"</a>
         </li>
         <li>
-          <a href="https://www.youtube.com/watch?v=INLq9RPAYUw&t=554s&ab_channel=Theo-t3%E2%80%A4gg">Video 2</a>
+          <a href="https://www.youtube.com/watch?v=INLq9RPAYUw&t=554s&ab_channel=Theo-t3%E2%80%A4gg" target='blank'>Video "Why is every React site so slow?"</a>
         </li>
         <li>
-          <a href="https://react-scan.com/">React Scan</a>
+          <a href="https://react-scan.com/">React Scan - cool rect tool</a>
         </li>
       </ul>
       <section>
         <ColorPicker />
         <Counter />
-        <ColorsList />
+        <Suspense fallback={<div>Loading...</div>}>
+          <ColorsList />
+        </Suspense>
         <CustomForm />
       </section>
     </AppContext.Provider>
