@@ -1,8 +1,8 @@
 import React from 'react'
-import {useAppContext} from '../hooks/useAppContext'
+import {useCustomFormContext} from '../hooks/useCustomFormContext';
 
 const CustomInput = ({label, type = "text"}) => {
-	const {useStore, setState, getState} = useAppContext()
+	const {useStore, setState, getState} = useCustomFormContext();
 	const {value = ''} = useStore(state => state[label.toLowerCase()]) || {};
 	const handleChange = e => setState({[label.toLowerCase()]: {value: e.target.value, isValid: true}})
 

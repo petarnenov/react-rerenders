@@ -5,10 +5,12 @@ import React from 'react'
 import Counter from './components/Counter'
 import ColorPicker from './components/ColorPicker'
 import ColorsList from './components/ColorsList'
-import { AppContext } from './AppContext'
-import store from './store/store'
-import './App.css'
+import {AppContext} from './AppContext'
 import CustomForm from './components/CustomForm'
+import createStore from './store/store'
+import './App.css'
+
+const store = createStore()
 
 function App() {
 

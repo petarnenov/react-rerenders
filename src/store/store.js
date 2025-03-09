@@ -1,6 +1,6 @@
 import {useSyncExternalStore} from "react";
 
-function createStore(initialState) {
+export default function createStore(initialState) {
 	let currentState = initialState || {};
 	const listeners = new Set();
 
@@ -23,7 +23,3 @@ function createStore(initialState) {
 		)
 	}
 }
-
-const store = createStore();
-
-export default store;
